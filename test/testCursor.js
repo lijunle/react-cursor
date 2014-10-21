@@ -1,5 +1,6 @@
 "use strict";
 
+var Cursor = require('../dist/react-cursor').Cursor;
 var ReactTestUtils;
 
 function buildStatefulComponent(initialState) {

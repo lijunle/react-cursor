@@ -5,7 +5,7 @@ module.exports = function(config) {
         basePath: '',
 
         // frameworks to use
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'browserify'],
 
 
         // list of files / patterns to load in the browser
@@ -14,6 +14,10 @@ module.exports = function(config) {
             'dist/react-cursor.dev.js',
             'test/**/*.js'
         ],
+
+        preprocessors: {
+          'test/**/*.js': ['browserify']
+        },
 
 
         // list of files to exclude
