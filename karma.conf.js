@@ -10,8 +10,9 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'dist/wingspan-cursor.js',
-            'spec/**/*.js'
+            'node_modules/react/dist/react-with-addons.js',
+            'dist/react-cursor.dev.js',
+            'test/**/*.js'
         ],
 
 
