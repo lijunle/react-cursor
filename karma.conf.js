@@ -20,6 +20,11 @@ module.exports = function(config) {
         },
 
 
+      browserify: {
+        debug: true,
+        transform: [ 'brfs' ]
+      },
+
         // list of files to exclude
         exclude: [
 
