@@ -22,17 +22,17 @@
     var Child = React.createFactory(ChildDescriptor);
 
     var AppDescriptor = React.createClass({
-        getInitialState: function () {
-            return { a: {b: 42} };
-        },
         render: function () {
-            window.cur = ReactCursor.Cursor.build(this);
-            return Child({cur: cur});
+            return Child({cur: this.props.cursor});
         }
     });
     var App = React.createFactory(AppDescriptor);
 
-    React.render(App({}), document.getElementById('root'));
+    var cursor = Cursor.build({ a: {b: 42} });
+    var dom = document.getElementById('root');
+    cursor.init(function () {
+        React.render(App({ cursor: cursor }), dom);
+    });
 </script>
 </body>
 </html>
