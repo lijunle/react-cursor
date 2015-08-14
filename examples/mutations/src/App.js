@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var Cursor = require('react-cursor').Cursor;
+var Cursor = require('../../..').Cursor;
 var ImmutableOptimizations = require('react-cursor').ImmutableOptimizations;
 require('./App.less');
 
@@ -170,30 +170,10 @@ var List = React.createClass({
 });
 
 var Application = React.createClass({
-    getInitialState: function () {
-        return {
-            list: [
-                {
-                    key: getShortUID(),
-                    name: 'Luke Skywalker'
-                },
-                {
-                    key: getShortUID(),
-                    name: 'Yoda'
-                },
-                {
-                    key: getShortUID(),
-                    name: 'Darth Vader'
-                }
-            ]
-        }
-    },
-
     render: function () {
-        var cursor = Cursor.build(this);
         return (
             <div className="app">
-                <List list={cursor.refine('list')} />
+                <List list={this.props.cursor.refine('list')} />
             </div>
         );
     }
