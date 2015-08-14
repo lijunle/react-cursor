@@ -1,26 +1,14 @@
 var _      = require('underscore');
 var React  = require('react/addons');
-var Cursor = require('react-cursor').Cursor;
+var Cursor = require('../../..').Cursor;
 var ImmutableOptimizations = require('react-cursor').ImmutableOptimizations;
 require('./App.less');
 
 'use strict';
 
 var App = React.createClass({
-  getInitialState: function () {
-    return {
-      very: {
-        deeply: {
-          nested: {
-            counts: _.range(400).map(function () { return 0; })
-          }
-        }
-      }
-    };
-  },
-
   render: function () {
-    var cursor = Cursor.build(this);
+    var cursor = this.props.cursor;
     var counts = cursor.refine('very', 'deeply', 'nested', 'counts');
     var contents = counts.value.map(function (count, index) {
       return (
